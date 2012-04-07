@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %link{:href => "/stylesheets/contact-form.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:content => "noindex, noarchive, noodp, noydir", :name => "robots"}/
+  %body
+    - if @sent == true
+      .notice Your message has been sent. Thank you!
+    - else
+      - if !@errors.empty? || @failure
+        .notice.failure= @failure || "Please fill in all the required fields."
+      %form.contact-form{:enctype => "multipart/form-data", :method => "post"}
+        %p.form-field-row
+          %span.label
+            %label{:for => "name"} Your Name
+            %span.required-field (required)
+          %span.field
+            %input#name{:autocomplete => "off", :name => "name", :type => "text", :value => @values[:name]}
+              %span.error= @errors[:name]
+        %p.form-field-row
+          %span.label
+            %label{:for => "email"} Email
+            %span.required-field (valid email required)
+          %span.field
+            %input#email{:name => "email", :type => "text", :value => @values[:email]}
+              %span.error= @errors[:email]
+        %p.form-field-row
+          %span.label
+            %label{:for => "website"} Website
+          %span.field
+            %input#website{:name => "website", :type => "text", :value => @values[:website] || "http://"}
+              %span.error= @errors[:website]
+        %p.form-field-row
+          %span.label
+            %label{:for => "message"} Message
+            %span.required-field (required)
+          %span.field
+            %textarea#message{:cols => "30", :name => "message", :rows => "8"}= @values[:message]
+            %span.error= @errors[:message]
+        %p.form-field-row.captcha
+          %span.label
+            %label{:for => "captcha"} Prove you're human!
+            %span.required-field (required)
+          %span.field
+            %input#captcha{:name => "captcha", :size => "4", :type => "text", :value => ""}
+              %input#captcha_id{:name => "captcha_id", :size => "4", :type => "hidden", :value => @captcha_id}
+                %img{:src => "http://captchator.com/captcha/image/#{@captcha_id}"}/
+                %span.error= @errors[:captcha]
+        %p.form-field-row.send
+          %input#send-button{:name => "send-button", :onclick => "return cforms_validate('', false)", :type => "submit", :value => "Submit"}

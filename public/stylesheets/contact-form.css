@@ -1,0 +1,45 @@
+input[type="text"], input[type="email"], textarea {
+background: 
+#CECDCD;
+background: 
+rgba(0, 0, 0, 0.2);
+border: 1px solid 
+#F83D87;
+padding: 6px 5px;
+max-width: 400px;
+}
+#contactform label {
+float: left;
+padding-top: 10px;
+width: 100%;
+display: block;
+}
+form input[type="submit"] {
+border: none;
+cursor: pointer;
+padding: 12px 6px;
+}
+p {
+	font-family: 'LektonRegular','Lucida Console',Monaco,monospace;
+	text-shadow: 0 1px 1px 
+	black;
+text-align: justify;
+color: 
+#DDCEE6;
+font-size: 16px;
+line-height: 1.6em;
+}
+
+
+.btn, .more-link, input[type="submit"] {
+background: 
+#CAF715;
+color: 
+#251A32;
+padding: 5px 16px;
+text-shadow: 
+#C4F715 1px 1px 1px;
+border-radius: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+}
