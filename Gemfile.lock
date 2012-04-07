@@ -3,6 +3,7 @@ GEM
   specs:
     i18n (0.6.0)
     json (1.6.5)
+    liquid (2.3.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -33,6 +34,7 @@ PLATFORMS
 
 DEPENDENCIES
   json
+  liquid
   mustache
   newrelic_rpm
   pony
