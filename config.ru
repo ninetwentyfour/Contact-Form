@@ -1,6 +1,6 @@
 $:.unshift(__FILE__, ".")
 
-require 'download'
+require 'contact_form'
 
 use Rack::ShowExceptions
 
