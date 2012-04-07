@@ -5,6 +5,8 @@ configure :production do
   require 'newrelic_rpm'
 end
 
+set :protection, :except => :frame_options
+
 
 not_found do
   status 404
