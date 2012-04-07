@@ -1,7 +1,7 @@
 $:.unshift(__FILE__, ".")
 
-require 'contact_form'
+require 'contact'
 
 use Rack::ShowExceptions
 
-run ContactForm.new
+run Sinatra::Application

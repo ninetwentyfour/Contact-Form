@@ -1,6 +1,9 @@
 # See blog post at http://vitobotta.com/sinatra-contact-form-jekyll/
 
 %w(rubygems sinatra liquid resolv open-uri haml pony).each{ |g| require g }
+configure :production do
+  require 'newrelic_rpm'
+end
 
 
 not_found do
@@ -27,48 +30,48 @@ end
 
 def validate params
   errors = {}
-  
+
   [:name, :email, :message].each{|key| params[key] = (params[key] || "").strip }
-  
+
   errors[:name]    = "This field is required" unless given? params[:name]
-  
+
   if given? params[:email]
     errors[:email]   = "Please enter a valid email address" unless valid_email? params[:email]
   else
     errors[:email]   = "This field is required"
   end
-  
+
   errors[:message] = "This field is required" unless given? params[:message]
-  
-  
+
+
   errors
 end
 
 def send_email params, ip_address
   email_template = <<-EOS
-  
-  
-  
+
+
+
   Sent via http://www.travisberry.com/contact/ 
   When:          {{ when }}  
   IP address:    {{ ip_address }}
-  
+
   Your name:     {{ name }}
   Email:         {{ email }}
-  
+
   Message:       
-  
+
   {{ message }}
-  
+
   EOS
-  
+
   body = Liquid::Template.parse(email_template).render  "name"       => params[:name], 
                                                         "email"      => params[:email], 
                                                         "website"    => params[:website], 
                                                         "message"    => params[:message], 
                                                         "when"       => Time.now.strftime("%b %e, %Y %H:%M:%S %Z"), 
                                                         "ip_address" => ip_address
-  
+
   Pony.options = {
     :via => :smtp,
     :via_options => {
@@ -81,7 +84,7 @@ def send_email params, ip_address
       :enable_starttls_auto => true
     }
   }
-  
+
   Pony.mail(:to => "contact@travisberry.com", :from => params[:email], :subject => "A comment from #{params[:name]}", :body => body)
 end
 
@@ -99,12 +102,13 @@ post '/contact-form/?' do
     begin
       send_email(params, @env['REMOTE_ADDR']) 
       @sent = true
-    
+  
     rescue Exception => e
       puts e
       @failure = "Ooops, it looks like something went wrong while attempting to send your email. Mind trying again now or later? :)"
     end
   end
-  
+
   haml :contact_form
 end
+
