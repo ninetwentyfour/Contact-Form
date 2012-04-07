@@ -1,11 +1,7 @@
 # See blog post at http://vitobotta.com/sinatra-contact-form-jekyll/
 
-%w(rubygems sinatra liquid active_support/secure_random resolv open-uri haml pony).each{ |g| require g }
+%w(rubygems sinatra liquid resolv open-uri haml pony).each{ |g| require g }
 
-# APP_ROOT = File.join(File.dirname(__FILE__), '..')
-# 
-# set :root,  APP_ROOT
-# set :views, File.join(APP_ROOT, "_layouts")
 
 not_found do
   status 404
@@ -23,11 +19,6 @@ def valid_email?(email)
   else
     false
   end
-end
-
-def valid_url? url
-  return true if url == "http://"
-  !(url =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix).nil?
 end
 
 def given? field
