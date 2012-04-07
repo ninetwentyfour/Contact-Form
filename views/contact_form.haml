@@ -2,7 +2,6 @@
 %html
   %head
     %link{:href => "/stylesheets/contact-form.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
-    %meta{:content => "noindex, noarchive, noodp, noydir", :name => "robots"}/
   %body
     - if !@errors.empty? || @failure
       .notice.failure= @failure || "Please fill in all the required fields."
