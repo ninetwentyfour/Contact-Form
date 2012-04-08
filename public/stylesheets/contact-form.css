@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'LektonRegular';
+  src: url('http://static-assets3.travisberry.com/fonts/gzip/Lekton-Regular-webfont.eot.gz');
+  src: url('http://static-assets3.travisberry.com/fonts/gzip/Lekton-Regular-webfont.eot.gz?#iefix') format('embedded-opentype'),
+    url('http://static-assets3.travisberry.com/fonts/gzip/Lekton-Regular-webfont.ttf') format('truetype'),
+    url('http://static-assets3.travisberry.com/fonts/gzip/Lekton-Regular-webfont.svg#LektonRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
+@font-face {
+  font-family: 'MolengoRegular';
+  src: url('http://static-assets3.travisberry.com/fonts/gzip/Molengo-Regular-webfont.eot.gz');
+  src: url('http://static-assets3.travisberry.com/fonts/gzip/Molengo-Regular-webfont.eot.gz?#iefix') format('embedded-opentype'),
+    url('http://static-assets3.travisberry.com/fonts/gzip/Molengo-Regular-webfont.ttf') format('truetype'),
+    url('http://static-assets3.travisberry.com/fonts/gzip/Molengo-Regular-webfont.svg#MolengoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  
+}
 /* Reset.css */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
