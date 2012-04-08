@@ -26,5 +26,6 @@
         %span.field
           %textarea#message{:cols => "35", :name => "message", :rows => "10"}= @values[:message]
           %span.error= @errors[:message]
+      %br
       %p.form-field-row.send
         %input#send-button{:name => "send-button", :type => "submit", :value => "Send Message"}
