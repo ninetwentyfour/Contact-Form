@@ -23,6 +23,13 @@ del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 /* End reset */
+#contactform {
+margin-top: 30px;
+overflow: hidden;
+max-width: 600px;
+float: left;
+}
+
 input[type="text"], input[type="email"], textarea {
 background: 
 #CECDCD;
