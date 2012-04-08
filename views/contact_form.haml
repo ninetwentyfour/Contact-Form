@@ -5,8 +5,6 @@
   %body
     - if !@errors.empty? || @failure
       .notice.failure= @failure || "Please fill in all the required fields."
-    - if @sent == true
-      .notice Your message has been sent. Thank you!
     %form.contact-form{:enctype => "multipart/form-data", :method => "post", :id => "contactform"}
       %p.form-field-row
         %span.label
@@ -29,3 +27,5 @@
       %br
       %p.form-field-row.send
         %input#send-button{:name => "send-button", :type => "submit", :value => "Send Message"}
+      - if @sent == true
+        .notice Your message has been sent. Thank you!
