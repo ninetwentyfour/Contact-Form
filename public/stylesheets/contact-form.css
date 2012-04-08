@@ -1,3 +1,28 @@
+/* Reset.css */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, q, small, strong, sub, sup, tt, var,
+ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+ul, ol { list-style: none;}
+img { border: none; }
+:focus { outline: 0; }
+ins { text-decoration: underline; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+/* End reset */
 input[type="text"], input[type="email"], textarea {
 background: 
 #CECDCD;
