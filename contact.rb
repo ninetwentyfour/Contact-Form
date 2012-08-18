@@ -44,6 +44,10 @@ def validate params
   end
 
   errors[:message] = "This field is required" unless given? params[:message]
+  
+  if given? params[:im_a_robot]
+    errors[:im_a_robot] = "Only robots fill in this field. I don't want email from robots."
+  end
 
 
   errors

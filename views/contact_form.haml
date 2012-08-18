@@ -11,19 +11,23 @@
           %label{:for => "name"} Name
         %span.field
           %input#name{:autocomplete => "off", :name => "name", :type => "text", :value => @values[:name], :size => "30"}
-            %span.error= @errors[:name]
+          %span.error= @errors[:name]
       %p.form-field-row
         %span.label
           %label{:for => "email"} Email
         %span.field
           %input#email{:name => "email", :type => "text", :value => @values[:email], :size => "30"}
-            %span.error= @errors[:email]
+          %span.error= @errors[:email]
       %p.form-field-row
         %span.label
           %label{:for => "message"} Message
         %span.field
           %textarea#message{:cols => "35", :name => "message", :rows => "10"}= @values[:message]
           %span.error= @errors[:message]
+      %p.form-field-row
+        %span.field
+          %input#im_a_robot{:name => "im_a_robot", :type => "hidden", :value => @values[:im_a_robot], :size => "30"}
+          %span.error= @errors[:im_a_robot]
       %br
       %p.form-field-row.send
         %input#send-button{:name => "send-button", :type => "submit", :value => "Send Message"}
